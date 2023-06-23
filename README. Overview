@@ -1,20 +1,29 @@
 # Overview
 
-The "App Rating Prediction" project aims to build a model that predicts the rating of mobile apps based on various app features. The dataset used for this project is "googleplaystore.csv" from the Google Play Store.
+The "App Rating Prediction" project aims to build a model that predicts the rating of mobile apps based on 
+various app features. The dataset used for this project is "googleplaystore.csv" from the Google Play Store.
 
 The steps involved in this project are as follows:
 
 1) Loading the dataset using pandas and checking for null values in each column.
 2) Dropping records with null values in any column.
 3) Fixing incorrect variable types and formatting inconsistencies in columns such as Size, Reviews, Installs, and Price.
-4) Performing sanity checks by dropping rows with ratings outside the range of 1 to 5, reviews greater than installs, and price greater than 0 for free apps.
-5) Conducting univariate analysis by creating boxplots for Price and Reviews, and histograms for Rating and Size. Observations are made regarding outliers in these variables.
-6) Treating outliers by dropping apps with very high prices and reviews, as well as apps with extremely high numbers of installs.
-7) Conducting bivariate analysis to examine the relationship between the target variable (Rating) and other features. Scatter plots and box plots are created for Rating vs. Price, Size, Reviews, Content Rating, and Category. Observations are made based on these plots.
-8) Data preprocessing steps include creating a copy of the dataframe, applying log transformation to Reviews and Installs to reduce skewness, and dropping irrelevant columns. Dummy encoding is performed on categorical variables (Category, Genres, and Content Rating).
+4) Performing sanity checks by dropping rows with ratings outside the range of 1 to 5, reviews greater than installs,
+and price greater than 0 for free apps.
+5) Conducting univariate analysis by creating boxplots for Price and Reviews, and histograms for Rating and Size. Observations
+are made regarding outliers in these variables.
+6) Treating outliers by dropping apps with very high prices and reviews, as well as apps with extremely high numbers 
+of installs.
+7) Conducting bivariate analysis to examine the relationship between the target variable (Rating) and other features. Scatter 
+plots and box plots are created for Rating vs. Price, Size, Reviews, Content Rating, and Category. Observations are made 
+based on these plots.
+8) Data preprocessing steps include creating a copy of the dataframe, applying log transformation to Reviews and Installs 
+to reduce skewness, and dropping irrelevant columns. Dummy encoding is performed on categorical variables (Category, Genres, 
+and Content Rating).
 9) The dataset is split into training and testing sets using a 70-30 split.
 10) Separating the dataframes into X_train, y_train, X_test, and y_test.
 11) Building a linear regression model and reporting the R2 score on the training set.
 12) Making predictions on the test set and reporting the R2 score.
 
-The project aims to predict app ratings using a linear regression model and assess the relationships between app features and ratings through exploratory data analysis.
+The project aims to predict app ratings using a linear regression model and assess the relationships between app features 
+and ratings through exploratory data analysis.
