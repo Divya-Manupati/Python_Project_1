@@ -204,7 +204,8 @@ data.Price
 
 # #### 4.5) Sanity checks:
 # 
-# ##### 4.5.1) Average rating should be between 1 and 5 as only these values are allowed on the play store. Drop the rows that have a value outside this range.
+# ##### 4.5.1) Average rating should be between 1 and 5 as only these values are allowed on the play store. Drop the rows
+that have a value outside this range.
 
 # In[30]:
 
@@ -220,7 +221,8 @@ data[(data['Rating'] < 1) & (data['Rating'] > 5)]
 # there are no values outside the range.So, there are no values to drop.
 
 
-# ##### 4.5.2) Reviews should not be more than installs as only those who installed can review the app. If there are any such records, drop them.
+# ##### 4.5.2) Reviews should not be more than installs as only those who installed can review the app. If there are any such 
+records, drop them.
 
 # In[32]:
 
@@ -300,7 +302,8 @@ plt.title('Histogram for Size');
 
 # ### 6) Outlier treatment: 
 # 
-# #### 6.1) Price: From the box plot, it seems like there are some apps with very high price. A price of 200 dollars for an application on the Play Store is very high and suspicious!
+# #### 6.1) Price: From the box plot, it seems like there are some apps with very high price. A price of 200 dollars for an 
+application on the Play Store is very high and suspicious!
 # ##### 6.1.1) Check out the records with very high price
 # #### 6.2) Drop these as most seem to be junk apps
 
@@ -324,7 +327,8 @@ data.drop(data[data['Price']>200].index,inplace=True)
 data[data['Price'] > 200] # now we dropped the junk apps which are more than 200 dollars.
 
 
-# ### 6.2) Reviews: Very few apps have very high number of reviews. These are all star apps that don’t help with the analysis and, in fact, will skew it. Drop records having more than 2 million reviews.
+# ### 6.2) Reviews: Very few apps have very high number of reviews. These are all star apps that don’t help with the analysis 
+and, in fact, will skew it. Drop records having more than 2 million reviews.
 
 # In[45]:
 
@@ -350,7 +354,8 @@ data[data['Reviews'] > 2000000]
 # after dropping, now we cannot see the records having more than 2000000.
 
 
-# ### 6.3) Installs:  There seems to be some outliers in this field too. Apps having very high number of installs should be dropped from the analysis.
+# ### 6.3) Installs:  There seems to be some outliers in this field too. Apps having very high number of installs should 
+  be dropped from the analysis.
 # 
 # -Find out the different percentiles – 10, 25, 50, 70, 90, 95, 99
 # 
@@ -405,7 +410,9 @@ data.drop(data[data['Installs']>2485000.0].index,inplace=True)
 data.shape
 
 
-# ## 7) Bivariate analysis: Let’s look at how the available predictors relate to the variable of interest, i.e., our target variable rating. Make scatter plots (for numeric features) and box plots (for character features) to assess the relations between rating and the other features.
+# ## 7) Bivariate analysis: Let’s look at how the available predictors relate to the variable of interest, i.e., our 
+target variable rating. Make scatter plots (for numeric features) and box plots (for character features) to assess the 
+relations between rating and the other features.
 # ### 7.1) Make scatter plot/joinplot for Rating vs. Price
 
 # In[55]:
@@ -480,7 +487,8 @@ inp1 = data
 inp1.head()
 
 
-# ### 8.1) Reviews and Install have some values that are still relatively very high. Before building a linear regression model, you need to reduce the skew. Apply log transformation (np.log1p) to Reviews and Installs.
+# ### 8.1) Reviews and Install have some values that are still relatively very high. Before building a linear 
+regression model, you need to reduce the skew. Apply log transformation (np.log1p) to Reviews and Installs.
 
 # In[62]:
 
@@ -521,7 +529,9 @@ inp1
 inp1.head()
 
 
-# ### 8.3) Get dummy columns for Category, Genres, and Content Rating. This needs to be done as the models do not understand categorical data, and all data should be numeric. Dummy encoding is one way to convert character fields to numeric. Name of dataframe should be inp2.
+# ### 8.3) Get dummy columns for Category, Genres, and Content Rating. This needs to be done as the models do not 
+understand categorical data, and all data should be numeric. Dummy encoding is one way to convert character fields 
+to numeric. Name of dataframe should be inp2.
 
 # In[68]:
 
